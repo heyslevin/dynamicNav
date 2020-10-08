@@ -1,0 +1,135 @@
+body {
+	margin: 0;
+}
+
+.nav a {
+	float: left;
+	text-decoration: none;
+	color:black;
+	padding: 10px;
+
+	transition: all 0.5s ease; 
+}
+
+.nav a:hover {
+	color:gray;
+}
+
+.navFonts {
+	font-family: Graphik;
+	font-size: 13px;
+	padding: 5px 10px;
+	text-align: left;
+}
+
+.dropdown button {
+
+	border: none;
+	outline: none;
+	margin: 0; /* Important for vertical align on mobile phones */
+
+	font-family: Graphik;
+	font-size: 13px;
+	padding: 10px;
+	text-align: left;
+
+	background: none;
+
+	transition: all 0.5s ease;
+}
+
+.dropdown button:hover {
+	color:gray;
+}
+
+.linkArea:first-child {
+	padding-left: 10px; 
+}
+
+.linkArea {
+
+    height: 100%;
+    padding: 5px 20px 15px;
+    margin: 0;
+    
+    display: flex;
+    align-content: center;
+    justify-content:center;
+
+    flex-direction: column;
+    text-align: center;
+
+    text-decoration: none;
+    color:black;
+
+}
+
+.title {
+	font-family: Graphik;
+	position: relative;
+	font-size: 13px;
+}
+
+.circle {
+
+	display: block;
+	height: 60px;
+	width: 60px;
+	background:black;
+	margin: 10px;
+	border-radius: 50%;
+	position: relative;
+
+	align-self:center;
+
+	transition: .5s all ease;
+
+
+}
+
+.circle:hover {
+	background: red;
+}
+
+
+.nav {
+	background: #e3e3e3;
+
+	display: flex;
+}
+
+.drawer {
+	display: flex;
+	background-color: #919191;
+	height: auto;
+
+	overflow-y: scroll;
+	scrollbar-width: none;
+
+}
+
+.dropdown {
+	float: left;
+	overflow: hidden;
+}
+
+
+
+.dropdown-content {
+	display: block;
+	opacity: 1;
+	position: relative;
+	background-color: yellow;
+	width: 100%
+	background: blue;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+
+	transition: all 0.5s ease;
+}
+
+.move-down {
+	display: block;
+	transform: translateY(10px);
+	opacity: 1;
+}
