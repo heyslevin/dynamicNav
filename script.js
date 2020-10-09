@@ -1,34 +1,54 @@
-// const dropdown = document.querySelector(".dropdown-content");
-// const dropButton = document.querySelector(".dropbtn");
+//Selectors
+const dropdown = document.querySelector(".dropbtn");
+const circles = document.querySelectorAll(".circle");
+const drawer = document.querySelector(".drawer");
+const links = document.querySelectorAll(".linkArea");
+const linkArray = [...links];
 
-// let toggle = function toggleVisibility() {
-// 	dropdown.classList.toggle("move-down");
-// };
+var drawerStatus = "closed";
 
-// dropdown.style.display = "block";
-
-// dropButton.addEventListener("click", toggle);
-
-const dropdown = document.querySelectorAll(".dropdown-content");
-const dropButton = document.querySelectorAll(".dropbtn");
-
-dropButtonArray = [...dropButton];
-dropContentArray = [...dropdown];
-
-let toggle = function toggleVisibility(e) {
-	e.parentNode.getElementsByTagName("div")[0].classList.toggle("move-down");
+//Stagger
+const stagger = function () {
+	let delay = 0;
+	linkArray.forEach((link) => {
+		link.style.transitionDelay = `${delay}ms`;
+		delay += 300;
+	});
 };
 
-dropContentArray.forEach((content) => {
-	content.style.display = "block";
-});
+//Functions
+const toggleDrawer = function () {
+	if (drawer.classList.contains("closeDrawer")) {
+		linkArray.forEach((link) => {
+			stagger();
+			link.classList.toggle("transition");
+			link.classList.toggle("opacity1");
+		});
+	} else {
+		linkArray.forEach((link) => {
+			link.style.transitionDelay = "0ms";
+			link.classList.toggle("transition");
+			link.classList.toggle("opacity1");
+		});
+	}
 
-dropButton.forEach((button) => {
-	button.addEventListener("mouseover", function (e) {
-		toggle(e.target);
-	});
+	drawer.classList.toggle("closeDrawer");
+};
 
-	button.addEventListener("mouseout", function (e) {
-		toggle(e.target);
-	});
-});
+//Color for circles
+function getRandomColor() {
+	var letters = "0123456789ABCDEF";
+	var color = "#";
+	for (var i = 0; i < 6; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
+
+for (i = 0; i < circles.length; i++) {
+	let color = getRandomColor();
+	circles[i].style.background = color;
+}
+
+//Events
+dropdown.addEventListener("click", toggleDrawer);
